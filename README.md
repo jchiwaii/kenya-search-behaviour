@@ -30,6 +30,26 @@ make dashboard
 Open the URL printed by Streamlit (normally `http://localhost:8501`). Run tests
 with `make test`.
 
+## Cloud collection with GitHub Actions
+
+The workflow in `.github/workflows/collect-trends.yml` runs hourly without your
+laptop. It collects until **1 July 2026, 00:00 Africa/Nairobi**, commits the raw
+snapshot and SQLite database to the repository, then creates a final statistical
+report on its next run.
+
+To activate it:
+
+1. Push this project to a GitHub repository.
+2. In **Settings → Actions → General → Workflow permissions**, select
+   **Read and write permissions** if your repository does not allow the workflow's
+   declared `contents: write` permission by default.
+3. Open **Actions → Collect Kenyan search trends → Run workflow** once to verify it.
+
+Scheduled workflows run from the default branch. GitHub may occasionally delay a
+scheduled run, so the final report includes an approximate hourly coverage rate.
+After the report has been committed, disable or delete the schedule to avoid
+unnecessary no-op workflow runs.
+
 Without installing the package, the pipeline can also run directly:
 
 ```bash
@@ -68,4 +88,3 @@ Schedule RSS collection every 30–60 minutes for two weeks. That history will l
 us measure recurring themes, trend duration, time-of-day patterns, source mix,
 and genuinely Kenya-specific signals. Use those findings to decide which topics
 deserve Google Trends Explore backfills and dedicated dashboard views.
-

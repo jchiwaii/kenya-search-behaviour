@@ -1,6 +1,7 @@
 import sqlite3
 from pathlib import Path
 
+from kenya_search.analysis import build_report
 from kenya_search.pipeline import ingest, parse_rss, parse_traffic_lower_bound
 
 
@@ -36,3 +37,9 @@ def test_end_to_end_ingestion(tmp_path: Path) -> None:
         assert connection.execute("SELECT COUNT(*) FROM ingestion_runs").fetchone()[0] == 1
         assert connection.execute("SELECT COUNT(*) FROM trends").fetchone()[0] == 1
         assert connection.execute("SELECT COUNT(*) FROM news_items").fetchone()[0] == 1
+
+    report_path = build_report(db_path, tmp_path / "report.md")
+    report = report_path.read_text()
+    assert "Successful snapshots: 1" in report
+    assert "fuel prices kenya" in report
+    assert "Example News" in report
