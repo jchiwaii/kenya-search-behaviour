@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kenya-search-behaviour"
+version = "0.1.0"
+description = "An end-to-end pipeline for exploring Kenyan Google search trends."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.1,<3",
+  "streamlit>=1.35,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<9",
+  "ruff>=0.6,<1",
+]
+
+[project.scripts]
+kenya-trends = "kenya_search.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rss xmlns:ht="https://trends.google.com/trending/rss" version="2.0">
+  <channel>
+    <title>Daily Search Trends</title>
+    <item>
+      <title>fuel prices kenya</title>
+      <ht:approx_traffic>2,000+</ht:approx_traffic>
+      <pubDate>Thu, 18 Jun 2026 06:40:00 -0700</pubDate>
+      <ht:picture>https://example.com/image.jpg</ht:picture>
+      <ht:picture_source>Example News</ht:picture_source>
+      <ht:news_item>
+        <ht:news_item_title>Fuel prices change</ht:news_item_title>
+        <ht:news_item_url>https://example.com/story</ht:news_item_url>
+        <ht:news_item_source>Example News</ht:news_item_source>
+      </ht:news_item>
+    </item>
+  </channel>
+</rss>
+
